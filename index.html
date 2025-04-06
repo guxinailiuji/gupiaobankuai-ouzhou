@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欧洲股市板块与重要成分股</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.294.0/dist/umd/lucide-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-blue-600 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 21H21M3 18H21M5 3H19C20.1046 3 21 3.89543 21 5V13C21 14.1046 20.1046 15 19 15H5C3.89543 15 3 14.1046 3 13V5C3 3.89543 3.89543 3 5 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 10L10 7L13 10L17 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h1 class="text-3xl font-semibold font-geist-mono">欧洲股市概览 <span class="text-sm font-normal text-gray-500">by 不霁何虹</span></h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="text-gray-600 max-w-3xl">欧洲股市涵盖多个国家的证券交易所，是全球金融市场的重要组成部分。本页面展示欧洲主要股票指数及其关键成分股信息。</p>
+        </header>
+
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-semibold">主要股票指数</h2>
+                <div class="h-px bg-gray-300 flex-grow ml-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium">Stoxx 600 指数</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">囊括欧洲17个国家的600家大中型公司的综合指数</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>市值: €13.4万亿</span>
+                        <span>成立于: 1998年</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium">英国富时100指数 (FTSE 100)</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">伦敦证券交易所市值前100位的上市公司指数</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>市值: £2.1万亿</span>
+                        <span>成立于: 1984年</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium">法国CAC 40指数</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">巴黎证券交易所市值最大的40家法国上市公司股票指数</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>市值: €2.2万亿</span>
+                        <span>成立于: 1987年</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium">德国DAX指数</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">德国法兰克福证券交易所市值最大的40家德国上市公司股票指数</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>市值: €1.6万亿</span>
+                        <span>成立于: 1988年</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium">意大利FTSE MIB指数</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">意大利证券交易所市值最大的40家意大利公司股票指数</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>市值: €0.8万亿</span>
+                        <span>成立于: 2009年</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-medium">欧洲斯托克50指数 (Euro Stoxx 50)</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">欧元区市值最大的50家蓝筹股公司股票指数</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>市值: €3.5万亿</span>
+                        <span>成立于: 1998年</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-semibold">欧洲股市板块</h2>
+                <div class="h-px bg-gray-300 flex-grow ml-4"></div>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 overflow-hidden mb-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4">
+                    <div class="sector-card p-4 rounded-lg bg-blue-50 border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="building-2" class="w-5 h-5 text-blue-500 mr-2"></i>
+                            <h3 class="font-medium">银行金融</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 17.5%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-blue-500 rounded-full" style="width: 17.5%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-green-50 border border-green-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="flask-conical" class="w-5 h-5 text-green-500 mr-2"></i>
+                            <h3 class="font-medium">工业制造</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 14.8%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-green-500 rounded-full" style="width: 14.8%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-red-50 border border-red-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="pill" class="w-5 h-5 text-red-500 mr-2"></i>
+                            <h3 class="font-medium">医疗健康</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 13.2%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-red-500 rounded-full" style="width: 13.2%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-purple-50 border border-purple-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="shopping-cart" class="w-5 h-5 text-purple-500 mr-2"></i>
+                            <h3 class="font-medium">消费品</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 12.7%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-purple-500 rounded-full" style="width: 12.7%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-yellow-50 border border-yellow-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="cpu" class="w-5 h-5 text-yellow-500 mr-2"></i>
+                            <h3 class="font-medium">科技</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 11.8%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-yellow-500 rounded-full" style="width: 11.8%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-indigo-50 border border-indigo-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="shield" class="w-5 h-5 text-indigo-500 mr-2"></i>
+                            <h3 class="font-medium">保险</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 9.5%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-indigo-500 rounded-full" style="width: 9.5%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-orange-50 border border-orange-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="fuel" class="w-5 h-5 text-orange-500 mr-2"></i>
+                            <h3 class="font-medium">能源</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 8.6%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-orange-500 rounded-full" style="width: 8.6%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sector-card p-4 rounded-lg bg-teal-50 border border-teal-100">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="building" class="w-5 h-5 text-teal-500 mr-2"></i>
+                            <h3 class="font-medium">其他</h3>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">占市值比重: 11.9%</p>
+                        <div class="h-1 w-full bg-gray-200 rounded-full mb-2">
+                            <div class="h-1 bg-teal-500 rounded-full" style="width: 11.9%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-semibold">重要成分股</h2>
+                <div class="h-px bg-gray-300 flex-grow ml-4"></div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-5 h-5 rounded-full bg-blue-500 mr-2 flex-shrink-0"></div>
+                    <h3 class="text-xl font-medium">银行金融板块</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">股票代码</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">公司名称</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">国家</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">市值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">HSBA.L</td>
+                                <td class="py-3 px-4 text-sm">汇丰控股有限公司 (HSBC Holdings PLC)</td>
+                                <td class="py-3 px-4 text-sm">英国</td>
+                                <td class="py-3 px-4 text-sm">£1,210亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">BARC.L</td>
+                                <td class="py-3 px-4 text-sm">巴克莱银行 (Barclays PLC)</td>
+                                <td class="py-3 px-4 text-sm">英国</td>
+                                <td class="py-3 px-4 text-sm">£308亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">LLOY.L</td>
+                                <td class="py-3 px-4 text-sm">劳埃德银行集团 (Lloyds Banking Group PLC)</td>
+                                <td class="py-3 px-4 text-sm">英国</td>
+                                <td class="py-3 px-4 text-sm">£295亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">NWG.L</td>
+                                <td class="py-3 px-4 text-sm">NatWest Group PLC</td>
+                                <td class="py-3 px-4 text-sm">英国</td>
+                                <td class="py-3 px-4 text-sm">£241亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">INGA.AS</td>
+                                <td class="py-3 px-4 text-sm">荷兰国际集团 (ING Groep NV)</td>
+                                <td class="py-3 px-4 text-sm">荷兰</td>
+                                <td class="py-3 px-4 text-sm">€480亿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-5 h-5 rounded-full bg-indigo-500 mr-2 flex-shrink-0"></div>
+                    <h3 class="text-xl font-medium">保险板块</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">股票代码</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">公司名称</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">国家</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">市值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">ALV.DE</td>
+                                <td class="py-3 px-4 text-sm">安联保险 (Allianz SE)</td>
+                                <td class="py-3 px-4 text-sm">德国</td>
+                                <td class="py-3 px-4 text-sm">€910亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">AXA.PA</td>
+                                <td class="py-3 px-4 text-sm">安盛集团 (AXA SA)</td>
+                                <td class="py-3 px-4 text-sm">法国</td>
+                                <td class="py-3 px-4 text-sm">€720亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">ZURN.SW</td>
+                                <td class="py-3 px-4 text-sm">苏黎世保险集团 (Zurich Insurance Group AG)</td>
+                                <td class="py-3 px-4 text-sm">瑞士</td>
+                                <td class="py-3 px-4 text-sm">£670亿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-5 h-5 rounded-full bg-green-500 mr-2 flex-shrink-0"></div>
+                    <h3 class="text-xl font-medium">工业制造板块</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">股票代码</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">公司名称</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">国家</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">市值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">SIE.DE</td>
+                                <td class="py-3 px-4 text-sm">西门子公司 (Siemens AG)</td>
+                                <td class="py-3 px-4 text-sm">德国</td>
+                                <td class="py-3 px-4 text-sm">€1,320亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">STLA.PA</td>
+                                <td class="py-3 px-4 text-sm">Stellantis NV</td>
+                                <td class="py-3 px-4 text-sm">荷兰/法国</td>
+                                <td class="py-3 px-4 text-sm">€580亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">ASML.AS</td>
+                                <td class="py-3 px-4 text-sm">阿斯麦 (ASML Holding NV)</td>
+                                <td class="py-3 px-4 text-sm">荷兰</td>
+                                <td class="py-3 px-4 text-sm">€2,680亿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-5 h-5 rounded-full bg-red-500 mr-2 flex-shrink-0"></div>
+                    <h3 class="text-xl font-medium">医疗健康板块</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">股票代码</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">公司名称</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">国家</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">市值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">BAYN.DE</td>
+                                <td class="py-3 px-4 text-sm">拜耳公司 (Bayer AG)</td>
+                                <td class="py-3 px-4 text-sm">德国</td>
+                                <td class="py-3 px-4 text-sm">€290亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">SAN.PA</td>
+                                <td class="py-3 px-4 text-sm">赛诺菲 (Sanofi SA)</td>
+                                <td class="py-3 px-4 text-sm">法国</td>
+                                <td class="py-3 px-4 text-sm">€1,050亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">PHIA.AS</td>
+                                <td class="py-3 px-4 text-sm">飞利浦 (Koninklijke Philips NV)</td>
+                                <td class="py-3 px-4 text-sm">荷兰</td>
+                                <td class="py-3 px-4 text-sm">€180亿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-5 h-5 rounded-full bg-purple-500 mr-2 flex-shrink-0"></div>
+                    <h3 class="text-xl font-medium">消费品板块</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">股票代码</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">公司名称</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">国家</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">市值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">ADS.DE</td>
+                                <td class="py-3 px-4 text-sm">阿迪达斯 (Adidas AG)</td>
+                                <td class="py-3 px-4 text-sm">德国</td>
+                                <td class="py-3 px-4 text-sm">€350亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">MC.PA</td>
+                                <td class="py-3 px-4 text-sm">路易威登集团 (LVMH Moet Hennessy Louis Vuitton SE)</td>
+                                <td class="py-3 px-4 text-sm">法国</td>
+                                <td class="py-3 px-4 text-sm">€3,750亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">NESN.SW</td>
+                                <td class="py-3 px-4 text-sm">雀巢 (Nestle SA)</td>
+                                <td class="py-3 px-4 text-sm">瑞士</td>
+                                <td class="py-3 px-4 text-sm">€2,450亿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center mb-4">
+                    <div class="w-5 h-5 rounded-full bg-yellow-500 mr-2 flex-shrink-0"></div>
+                    <h3 class="text-xl font-medium">科技板块</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">股票代码</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">公司名称</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">国家</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-600">市值</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">SAP.DE</td>
+                                <td class="py-3 px-4 text-sm">思爱普 (SAP SE)</td>
+                                <td class="py-3 px-4 text-sm">德国</td>
+                                <td class="py-3 px-4 text-sm">€1,850亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">ASML.AS</td>
+                                <td class="py-3 px-4 text-sm">阿斯麦 (ASML Holding NV)</td>
+                                <td class="py-3 px-4 text-sm">荷兰</td>
+                                <td class="py-3 px-4 text-sm">€2,680亿</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 text-sm font-mono">NOKIA.HE</td>
+                                <td class="py-3 px-4 text-sm">诺基亚 (Nokia Oyj)</td>
+                                <td class="py-3 px-4 text-sm">芬兰</td>
+                                <td class="py-3 px-4 text-sm">€117亿</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <h2 class="text-2xl font-semibold">欧洲股市概览</h2>
+                <div class="h-px bg-gray-300 flex-grow ml-4"></div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <p class="text-gray-700 mb-4">
+                    欧洲股市是全球金融市场的重要组成部分，包含多个国家的证券交易所。主要指数包括 Stoxx 600、欧洲斯托克50、英国富时100、法国CAC 40、德国DAX等。
+                </p>
+                <p class="text-gray-700 mb-4">
+                    欧洲股市的主要特点：
+                </p>
+                <ul class="list-disc pl-5 text-gray-700 mb-4 space-y-2">
+                    <li>多元化的行业结构，银行金融、工业制造、医疗健康和消费品占据重要比重</li>
+                    <li>高度国际化，许多公司业务遍布全球</li>
+                    <li>历史悠久，拥有一些世界上最古老的交易所</li>
+                    <li>受欧洲央行和各国央行政策影响较大</li>
+                </ul>
+                <p class="text-gray-700">
+                    投资者关注欧洲股市时，应密切留意欧元区经济数据、欧洲央行政策动向、地缘政治因素以及全球贸易环境变化。
+                </p>
+            </div>
+        </section>
+
+        <footer class="border-t border-gray-200 pt-6 text-center text-gray-600 text-sm">
+            <p class="mt-2">
+                <a href="#" class="text-blue-600 hover:underline">by 不霁何虹</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

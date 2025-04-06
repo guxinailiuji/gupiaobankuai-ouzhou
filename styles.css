@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #f5f5f7;
+  --text-color: #333333;
+  --muted-color: #6e6e73;
+  --border-color: #d2d2d7;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --transition-speed: 0.2s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-geist-mono {
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, monospace;
+}
+
+/* Add flashing highlight effect for stock index cards */
+@keyframes flashHighlight {
+  0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+  100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
+}
+
+/* Main Stock Indices card highlight */
+section:nth-child(1) .rounded-lg {
+  position: relative;
+  overflow: hidden;
+  animation: flashHighlight 2.5s infinite;
+}
+
+.sector-card {
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.sector-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+}
+
+/* Add scrolling gradient effect for progress bars */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sector-card .h-1.bg-blue-500,
+.sector-card .h-1.bg-green-500,
+.sector-card .h-1.bg-red-500,
+.sector-card .h-1.bg-purple-500,
+.sector-card .h-1.bg-yellow-500,
+.sector-card .h-1.bg-indigo-500,
+.sector-card .h-1.bg-orange-500,
+.sector-card .h-1.bg-teal-500 {
+  background-image: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0.4) 25%, 
+    rgba(255,255,255,0.7) 50%,
+    rgba(255,255,255,0.4) 75%,
+    rgba(255,255,255,0.1) 100%);
+  background-size: 200% 100%;
+  animation: gradientMove 2s infinite linear;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f9fafb;
+  z-index: 10;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+tbody tr {
+  transition: background-color var(--transition-speed);
+}
+
+.dark {
+  --secondary-color: #1a1a1a;
+  --text-color: #ffffff;
+  --muted-color: #a1a1a6;
+  --border-color: #38383c;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.dark .bg-white {
+  background-color: #1a1a1a;
+}
+
+.dark .bg-gray-50 {
+  background-color: #0a0a0a;
+}
+
+.dark .bg-gray-100 {
+  background-color: #1f1f1f;
+}
+
+.dark .text-gray-900 {
+  color: #ffffff;
+}
+
+.dark .text-gray-700 {
+  color: #e5e5e5;
+}
+
+.dark .text-gray-600 {
+  color: #a1a1a6;
+}
+
+.dark .text-gray-500 {
+  color: #86868b;
+}
+
+.dark .border-gray-200 {
+  border-color: #38383c;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  background-color: #262626;
+}
+
+@media (max-width: 640px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
